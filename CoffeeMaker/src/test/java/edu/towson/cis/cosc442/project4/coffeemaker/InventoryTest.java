@@ -24,8 +24,18 @@ public class InventoryTest {
 
     @Test
     void testEnoughIngredients() {
-        boolean isEnough = true;
-        assertEquals(isEnough, inventory.enoughIngredients(recipe));
+        assertEquals(true, inventory.enoughIngredients(recipe));
+        inventory.setCoffee(0);
+        assertEquals(false, inventory.enoughIngredients(recipe));
+        inventory.setCoffee(1);
+        inventory.setMilk(0);
+        assertEquals(false, inventory.enoughIngredients(recipe));
+        inventory.setMilk(1);
+        inventory.setSugar(0);
+        assertEquals(false, inventory.enoughIngredients(recipe));
+        inventory.setSugar(1);
+        inventory.setChocolate(0);
+        assertEquals(false, inventory.enoughIngredients(recipe));
     }
 
     @Test
@@ -58,5 +68,29 @@ public class InventoryTest {
         + "Sugar: " + inventory.getSugar() + "\n" + "Chocolate: " + inventory.getChocolate() + "\n";
 
         assertEquals(amounts, inventory.toString());
+    }
+
+    @Test
+    void testSetChocolate() {
+        inventory.setChocolate(-1);
+        assertEquals(0, inventory.getChocolate());
+    }
+
+    @Test
+    void testSetCoffee() {
+        inventory.setCoffee(-1);
+        assertEquals(0, inventory.getCoffee());
+    }
+
+    @Test
+    void testSetMilk() {
+        inventory.setMilk(-1);
+        assertEquals(0, inventory.getMilk());
+    }
+
+    @Test
+    void testSetSugar() {
+        inventory.setSugar(-1);
+        assertEquals(0, inventory.getSugar());
     }
 }
