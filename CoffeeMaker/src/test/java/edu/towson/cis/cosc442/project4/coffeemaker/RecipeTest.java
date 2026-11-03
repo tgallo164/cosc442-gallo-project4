@@ -4,10 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/*
-Does not specifically test the setter methods as they are also 
-tested within the getter method tests
-*/
+
 public class RecipeTest {
     private Recipe recipe;
     private Recipe recipe2;

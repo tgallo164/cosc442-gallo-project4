@@ -20,7 +20,7 @@ public class CoffeeMakerTest {
     recipe1.setPrice(1);
     recipe1.setName("Black");
     recipe2.setName("Decaf");
-    recipe1.setPrice(1);
+    recipe2.setPrice(1);
     coffee.addRecipe(recipe1);
     coffee.addRecipe(recipe2);
     }
@@ -29,6 +29,7 @@ public class CoffeeMakerTest {
     void testAddInventory() {
         boolean canAddInventory = true;
         assertEquals(canAddInventory, coffee.addInventory(1, 1, 0, 1));
+        assertEquals(false, coffee.addInventory(-1, -1, 1, -1));
     }
 
     @Test
@@ -36,6 +37,11 @@ public class CoffeeMakerTest {
         boolean canAddRecipe = true;
         Recipe recipe3 = new Recipe();
         assertEquals(canAddRecipe, coffee.addRecipe(recipe3));
+        assertEquals(false, coffee.addRecipe(recipe1));
+        Recipe recipe4 = new Recipe();
+        coffee.addRecipe(recipe4);
+        Recipe recipe5 = new Recipe();
+        assertEquals(false, coffee.addRecipe(recipe5));
     }
 
     @Test
@@ -48,12 +54,17 @@ public class CoffeeMakerTest {
     void testDeleteRecipe() {
         boolean canDeleteRecipe = true;
         assertEquals(canDeleteRecipe, coffee.deleteRecipe(recipe1));
+        assertEquals(false, coffee.deleteRecipe(null));
     }
 
+     //needs changes for coverage
     @Test
     void testEditRecipe() {
         boolean canEditRecipe = true;
         assertEquals(canEditRecipe, coffee.editRecipe(recipe1, recipe2));
+        Recipe recipe3 = new Recipe();
+        recipe3.setName("Latte");
+        assertEquals(false, coffee.editRecipe(recipe1, recipe3));
     }
 
     @Test
@@ -68,6 +79,7 @@ public class CoffeeMakerTest {
         assertEquals(coffee.getRecipes(), coffee.getRecipes());
     }
 
+     //needs changes for coverage
     @Test
     void testMakeCoffee() {
         int change = 1;
