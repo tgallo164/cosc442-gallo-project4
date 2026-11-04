@@ -25,7 +25,6 @@ public class CoffeeMakerTest {
     coffee.addRecipe(recipe2);
     }
 
-    //REMEMBER TO REMOVE THE COMMENTS
     @Test
     void testAddInventory() {
         boolean canAddInventory = true;
@@ -33,11 +32,11 @@ public class CoffeeMakerTest {
         assertEquals(false, coffee.addInventory(0, 0, 1, 0));
         assertEquals(canAddInventory, coffee.addInventory(0, 0, 0, 0));
         coffee.addInventory(5, 5, 0, 2);
-        /*assertEquals(21, coffee.checkInventory().getCoffee());
+        assertEquals(21, coffee.checkInventory().getCoffee());
         assertEquals(21, coffee.checkInventory().getMilk());
         assertEquals(15, coffee.checkInventory().getSugar());
         assertEquals(18, coffee.checkInventory().getChocolate());
-        */
+        
     }
 
     @Test
