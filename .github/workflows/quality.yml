@@ -23,9 +23,11 @@ jobs:
 
     
       - name: Grand execution permission for mvnw
+        working-directory: CoffeeMaker    
         run: chmod +x mvnw
-            
+
       - name: Run JUnit regression tests
+        working-directory: CoffeeMaker 
         run: ./mvnw test
 
       # Add PIT mutation testing later
