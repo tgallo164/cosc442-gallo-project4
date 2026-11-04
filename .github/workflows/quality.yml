@@ -32,5 +32,6 @@ jobs:
 
       # Add PIT mutation testing later
       - name: Run PIT mutation testing
+        working-directory: CoffeeMaker    
         run: ./mvnw test-compile org.pitest:pitest-maven:mutationCoverage    
       # Add PIT report artifact upload later
