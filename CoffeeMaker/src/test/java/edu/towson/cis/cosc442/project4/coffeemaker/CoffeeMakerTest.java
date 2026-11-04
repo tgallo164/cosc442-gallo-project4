@@ -36,6 +36,7 @@ public class CoffeeMakerTest {
         assertEquals(21, coffee.checkInventory().getMilk());
         assertEquals(15, coffee.checkInventory().getSugar());
         assertEquals(18, coffee.checkInventory().getChocolate());
+        
     }
 
     @Test
