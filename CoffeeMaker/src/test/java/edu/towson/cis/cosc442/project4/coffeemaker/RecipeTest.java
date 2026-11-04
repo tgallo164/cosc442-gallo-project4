@@ -73,6 +73,10 @@ public class RecipeTest {
     void testSetAmtChocolate() {
         recipe.setAmtChocolate(-1);
         assertEquals(0, recipe.getAmtChocolate());
+        recipe.setAmtChocolate(0);
+        assertEquals(0, recipe.getAmtChocolate());
+        recipe.setAmtChocolate(1);
+        assertEquals(1, recipe.getAmtChocolate());
     }
 
     @Test

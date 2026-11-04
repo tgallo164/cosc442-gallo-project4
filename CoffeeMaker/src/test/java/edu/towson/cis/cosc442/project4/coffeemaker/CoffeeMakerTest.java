@@ -29,7 +29,13 @@ public class CoffeeMakerTest {
     void testAddInventory() {
         boolean canAddInventory = true;
         assertEquals(canAddInventory, coffee.addInventory(1, 1, 0, 1));
-        assertEquals(false, coffee.addInventory(-1, -1, 1, -1));
+        assertEquals(false, coffee.addInventory(0, 0, 1, 0));
+        assertEquals(canAddInventory, coffee.addInventory(0, 0, 0, 0));
+        coffee.addInventory(5, 5, 0, 2);
+        assertEquals(21, coffee.checkInventory().getCoffee());
+        assertEquals(21, coffee.checkInventory().getMilk());
+        assertEquals(15, coffee.checkInventory().getSugar());
+        assertEquals(18, coffee.checkInventory().getChocolate());
     }
 
     @Test
@@ -53,11 +59,12 @@ public class CoffeeMakerTest {
     @Test
     void testDeleteRecipe() {
         boolean canDeleteRecipe = true;
+        Recipe recipe3 = new Recipe();
         assertEquals(canDeleteRecipe, coffee.deleteRecipe(recipe1));
         assertEquals(false, coffee.deleteRecipe(null));
+        assertEquals(false, coffee.deleteRecipe(recipe3));
     }
 
-     //needs changes for coverage
     @Test
     void testEditRecipe() {
         boolean canEditRecipe = true;
@@ -74,15 +81,13 @@ public class CoffeeMakerTest {
 
     @Test
     void testGetRecipes() {
-        Recipe[] recipeArray = new Recipe[2];
-        recipeArray = coffee.getRecipes();
         assertEquals(coffee.getRecipes(), coffee.getRecipes());
     }
 
-     //needs changes for coverage
     @Test
     void testMakeCoffee() {
         int change = 1;
         assertEquals(change, coffee.makeCoffee(recipe1, 2));
+
     }
 }
