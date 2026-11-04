@@ -33,7 +33,8 @@ public class Inventory {
      * @param chocolate the new quantity of chocolate to set
      */
     public void setChocolate(int chocolate) {
-        if (chocolate >= 0) {
+        //REMEMBER TO CHANGE BACK TO >=
+        if (chocolate < 0) {
             Inventory.chocolate = chocolate;
         } else {
             Inventory.chocolate = 0;
